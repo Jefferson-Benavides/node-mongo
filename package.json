@@ -1,0 +1,23 @@
+{
+  "name": "mg-db",
+  "version": "1.0.0",
+  "description": "Test conecction to Mongo DB Atlas",
+  "main": "index.js",
+"dependencies": {
+    "mongodb": "^4.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jefferson-Benavides/node-mongo.git"
+  },
+  "author": "Mastatan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jefferson-Benavides/node-mongo/issues"
+  },
+  "homepage": "https://github.com/Jefferson-Benavides/node-mongo#readme"
+}
