@@ -1,27 +1,16 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://mastatan:g1zSKnBnE3iGSuSS@globant.pwzsxpf.mongodb.net/?retryWrites=true&w=majority";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/tu_base_de_datos', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const Entry = mongoose.model('Entry');
+
+mongoose.connection.once('open', async () => {
+  try {
+    const entries = await Entry.find();
+    entries.forEach(entry => {
+      console.log(entry);
+    });
+    mongoose.connection.close();
+  } catch (error) {
+    console.error('Error al consultar la base de datos:', error);
   }
 });
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
- const database = client.db();
-const collection = database.collection(asociados);
-const documentos = await collection.find({}).toArray();
-console.log(documentos);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
