@@ -4,7 +4,8 @@
   "description": "Test conecction to Mongo DB Atlas",
   "main": "index.js",
 "dependencies": {
-    "mongodb": "^4.0.0"
+    "mongodb": "^4.0.0",
+ "mongoose": "^6.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

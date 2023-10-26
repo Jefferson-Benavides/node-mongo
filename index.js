@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/tu_base_de_datos', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('"mongodb+srv://mastatan:g1zSKnBnE3iGSuSS@globant.pwzsxpf.mongodb.net/?retryWrites=true&w=majority";', { useNewUrlParser: true, useUnifiedTopology: true });
 
-const Entry = mongoose.model('Entry');
+const Entry = mongoose.model('asociados');
 
 mongoose.connection.once('open', async () => {
   try {
